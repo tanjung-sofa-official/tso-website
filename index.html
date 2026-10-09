@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanjung Sofa Interior - Service & Pembuatan Sofa, Kursi, Springbed, Gordyn</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- lightGallery CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            DEFAULT: '#8AD6D1',
+                            hover: '#73C8C2',
+                            dark: '#1C5B56',
+                            accent: '#14413D',
+                            light: '#F0F9F8'
+                        }
+                    },
+                    /* Major Third Scale (1.250) */
+                    fontSize: {
+                        'm3-xs': '0.8rem',     /* 12.8px */
+                        'm3-sm': '1rem',       /* 16px Base */
+                        'm3-md': '1.25rem',    /* 20px */
+                        'm3-lg': '1.563rem',   /* 25px */
+                        'm3-xl': '1.953rem',   /* 31.25px */
+                        'm3-2xl': '2.441rem',  /* 39.06px */
+                        'm3-3xl': '3.052rem',  /* 48.83px */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fabric-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .fabric-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand selection:text-brand-accent">
+
+    <!-- HEADER SECTION -->
+    <header class="bg-brand w-full sticky top-0 z-50 shadow-sm border-b border-brand-hover/40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo / Abbreviation -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-white text-brand-dark rounded-xl flex items-center justify-center font-bold text-m3-md shadow-sm group-hover:bg-brand-dark group-hover:text-white transition-colors duration-200">
+                    TSI
+                </div>
+                <div class="hidden sm:block">
+                    <span class="font-bold text-slate-900 text-m3-sm leading-tight block">Tanjung Sofa</span>
+                    <span class="text-m3-xs text-brand-dark font-medium tracking-wider uppercase block">Interior</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-6 text-m3-xs font-medium text-slate-800">
+                <a href="#home" class="hover:text-brand-dark transition-colors py-1" data-i18n="nav_home">Home</a>
+                <a href="#tentang-kami" class="hover:text-brand-dark transition-colors py-1" data-i18n="nav_about">Tentang Kami</a>
+                <a href="#layanan-kami" class="hover:text-brand-dark transition-colors py-1" data-i18n="nav_services">Layanan Kami</a>
+                <a href="#galeri" class="hover:text-brand-dark transition-colors py-1" data-i18n="nav_gallery">Galeri</a>
+                <a href="#blog" class="hover:text-brand-dark transition-colors py-1" data-i18n="nav_blog">Blog</a>
+                <a href="#hubungi-kami" class="hover:text-brand-dark transition-colors py-1" data-i18n="nav_contact">Hubungi Kami</a>
+            </nav>
+
+            <!-- Language Picker & Mobile Menu Toggle -->
+            <div class="flex items-center gap-3">
+                <!-- Language Picker -->
+                <div class="relative inline-block text-left">
+                    <button type="button" id="langDropdownBtn" class="inline-flex items-center gap-2 bg-white/80 hover:bg-white text-slate-800 px-3 py-1.5 rounded-lg text-m3-xs font-medium transition-all shadow-xs border border-slate-200/50">
+                        <span id="currentLangFlag">🇮🇩</span>
+                        <span id="currentLangText">ID</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
+                    </button>
+                    
+                    <div id="langMenu" class="hidden absolute right-0 mt-2 w-32 rounded-xl bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50 p-1">
+                        <button type="button" class="lang-option w-full text-left px-3 py-2 text-m3-xs text-slate-700 hover:bg-brand-light hover:text-brand-dark rounded-lg flex items-center gap-2 font-medium" data-lang="id">
+                            <span>🇮🇩</span> Indonesia
+                        </button>
+                        <button type="button" class="lang-option w-full text-left px-3 py-2 text-m3-xs text-slate-700 hover:bg-brand-light hover:text-brand-dark rounded-lg flex items-center gap-2 font-medium" data-lang="en">
+                            <span>🇬🇧</span> English
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button type="button" id="mobileMenuBtn" class="md:hidden p-2 text-slate-800 hover:text-brand-dark focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-m3-sm font-medium text-slate-700 hover:bg-brand-light hover:text-brand-dark" data-i18n="nav_home">Home</a>
+            <a href="#tentang-kami" class="mobile-nav-link block px-3 py-2 rounded-md text-m3-sm font-medium text-slate-700 hover:bg-brand-light hover:text-brand-dark" data-i18n="nav_about">Tentang Kami</a>
+            <a href="#layanan-kami" class="mobile-nav-link block px-3 py-2 rounded-md text-m3-sm font-medium text-slate-700 hover:bg-brand-light hover:text-brand-dark" data-i18n="nav_services">Layanan Kami</a>
+            <a href="#galeri" class="mobile-nav-link block px-3 py-2 rounded-md text-m3-sm font-medium text-slate-700 hover:bg-brand-light hover:text-brand-dark" data-i18n="nav_gallery">Galeri</a>
+            <a href="#blog" class="mobile-nav-link block px-3 py-2 rounded-md text-m3-sm font-medium text-slate-700 hover:bg-brand-light hover:text-brand-dark" data-i18n="nav_blog">Blog</a>
+            <a href="#hubungi-kami" class="mobile-nav-link block px-3 py-2 rounded-md text-m3-sm font-medium text-slate-700 hover:bg-brand-light hover:text-brand-dark" data-i18n="nav_contact">Hubungi Kami</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="bg-brand w-full py-16 sm:py-24 border-b border-brand-hover/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-10">
+            <div class="max-w-2xl space-y-6">
+                <span class="inline-block px-3 py-1 bg-white/60 text-brand-dark font-semibold text-m3-xs rounded-full border border-white/80" data-i18n="hero_badge">
+                    Tukang Sofa & Interior Terpercaya
+                </span>
+                <h1 class="text-m3-2xl sm:text-m3-3xl font-bold text-slate-900 leading-tight tracking-tight">
+                    Tanjung Sofa Interior
+                </h1>
+                <p class="text-m3-md text-slate-800 font-medium leading-relaxed max-w-xl" data-i18n="hero_subtitle">
+                    Service dan pembuatan sofa, kursi, springbed dan gordyn
+                </p>
+                <div class="pt-2 flex flex-wrap justify-center sm:justify-start gap-4">
+                    <a href="#galeri" class="bg-brand-dark hover:bg-brand-accent text-white font-medium px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2 text-m3-xs">
+                        <i class="fa-solid fa-images"></i>
+                        <span data-i18n="btn_gallery">Lihat Galeri</span>
+                    </a>
+                    <a href="#hubungi-kami" class="bg-white hover:bg-slate-50 text-brand-dark font-semibold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2 border border-slate-200 text-m3-xs">
+                        <i class="fa-solid fa-phone"></i>
+                        <span data-i18n="btn_contact">Hubungi Kami</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Decorative Visual Card -->
+            <div class="relative w-full sm:w-80 h-72 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Tanjung Sofa Interior Showcase" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex items-end p-4">
+                    <span class="text-white text-m3-xs font-semibold" data-i18n="hero_image_caption">Kualitas Terbaik & Pengerjaan Rapi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FABRICS SECTION -->
+    <section class="bg-slate-100 py-12 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-m3-xs font-semibold text-slate-500 uppercase tracking-widest mb-8" data-i18n="fabrics_title">
+                Pilihan Merek Bahan & Kain Premium
+            </p>
+            <div class="flex flex-wrap items-center justify-between gap-6 sm:gap-8">
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=Ateja" alt="Ateja" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=Murni+Leather" alt="Murni Leather" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=Hikaron" alt="Hikaron" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=Regency" alt="Regency" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=Lapaloma" alt="Lapaloma" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=Five+Point" alt="Five Point" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+                <div class="flex-1 min-w-[120px] text-center">
+                    <img src="https://placehold.co/180x60/e2e8f0/475569?text=MBTech" alt="MBTech" class="fabric-logo h-10 object-contain mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI SECTION -->
+    <section id="tentang-kami" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-light text-brand-dark rounded-full text-m3-xs font-semibold">
+                        <i class="fa-solid fa-couch"></i>
+                        <span data-i18n="about_tag">Pengalaman Bertahun-tahun</span>
+                    </div>
+                    <h2 class="text-m3-xl sm:text-m3-2xl font-bold text-slate-900 tracking-tight" data-i18n="about_heading">
+                        Spesialis Restorasi & Pembuatan Furniture Custom Terpercaya
+                    </h2>
+                    <p class="text-m3-sm text-slate-600 leading-relaxed" data-i18n="about_p1">
+                        Tanjung Sofa Interior berlokasi di Jakarta Selatan, siap membantu Anda mengembalikan kenyamanan dan keindahan furniture kesayangan Anda. Kami melayani perbaikan (service) hingga pembuatan baru sofa, kursi kantor/makan, springbed, serta gordyn custom.
+                    </p>
+                    <p class="text-m3-sm text-slate-600 leading-relaxed" data-i18n="about_p2">
+                        Didukung oleh tenaga ahli berpengalaman dan koleksi bahan bermutu tinggi seperti Ateja, MBTech, hingga Murni Leather, kami menjamin hasil pengerjaan rapi, presisi, dan tahan lama dengan harga yang bersahabat.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+                        <div>
+                            <span class="block text-m3-lg font-bold text-brand-dark">100%</span>
+                            <span class="text-m3-xs text-slate-500 font-medium" data-i18n="about_stat1">Garansi Kerapihan</span>
+                        </div>
+                        <div>
+                            <span class="block text-m3-lg font-bold text-brand-dark">Premium</span>
+                            <span class="text-m3-xs text-slate-500 font-medium" data-i18n="about_stat2">Pilihan Bahan Kain & Kulit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80" alt="Workmanship Tanjung Sofa Interior" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-brand-light border border-brand/40 p-5 rounded-2xl shadow-md hidden sm:block max-w-xs">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-dark text-m3-lg"></i>
+                            <p class="text-m3-xs font-semibold text-slate-800" data-i18n="about_badge_text">Melayani Antar-Jemput Bahan & Sofa Wilayah Jabodetabek</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN KAMI SECTION -->
+    <section id="layanan-kami" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="text-m3-xs font-semibold text-brand-dark uppercase tracking-wider block" data-i18n="services_subtitle">Layanan Unggulan</span>
+                <h2 class="text-m3-xl sm:text-m3-2xl font-bold text-slate-900 tracking-tight" data-i18n="services_title">Solusi Solutif untuk Interior Anda</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-emerald-50/60 border border-emerald-100 p-6 rounded-2xl transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-emerald-500/10 text-emerald-700 rounded-xl flex items-center justify-center text-m3-md mb-5">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <h3 class="text-m3-md font-bold text-slate-900 mb-2" data-i18n="s1_title">Service Sofa</h3>
+                    <p class="text-m3-xs text-slate-600 leading-relaxed" data-i18n="s1_desc">Ganti kain/kulit, tambah busa padat, perbaikan rangka kayu, dan penggantian pegas/per yang kendur agar kembali empuk seperti baru.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-indigo-50/60 border border-indigo-100 p-6 rounded-2xl transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-indigo-500/10 text-indigo-700 rounded-xl flex items-center justify-center text-m3-md mb-5">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="text-m3-md font-bold text-slate-900 mb-2" data-i18n="s2_title">Pembuatan Sofa</h3>
+                    <p class="text-m3-xs text-slate-600 leading-relaxed" data-i18n="s2_desc">Bikin sofa custom sesuai ukuran ruangan, desain minimalis/modern, serta pilihan bahan kain atau kulit kualitas premium pilihan Anda.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-amber-50/60 border border-amber-100 p-6 rounded-2xl transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-700 rounded-xl flex items-center justify-center text-m3-md mb-5">
+                        <i class="fa-solid fa-chair"></i>
+                    </div>
+                    <h3 class="text-m3-md font-bold text-slate-900 mb-2" data-i18n="s3_title">Service Kursi</h3>
+                    <p class="text-m3-xs text-slate-600 leading-relaxed" data-i18n="s3_desc">Perbaikan kursi makan, kursi kantor, kursi ukir kayu, hingga booth restoran. Penggantian upholstery dan finishing ulang.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-sky-50/60 border border-sky-100 p-6 rounded-2xl transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-sky-500/10 text-sky-700 rounded-xl flex items-center justify-center text-m3-md mb-5">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="text-m3-md font-bold text-slate-900 mb-2" data-i18n="s4_title">Service Springbed</h3>
+                    <p class="text-m3-xs text-slate-600 leading-relaxed" data-i18n="s4_desc">Ganti kain pembungkus springbed, penataan ulang per yang miring, serta penambahan lapisan busa kenyal berkualitas tinggi.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-rose-50/60 border border-rose-100 p-6 rounded-2xl transition-all duration-200 hover:shadow-md hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 bg-rose-500/10 text-rose-700 rounded-xl flex items-center justify-center text-m3-md mb-5">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h3 class="text-m3-md font-bold text-slate-900 mb-2" data-i18n="s5_title">Pembuatan Gordyn</h3>
+                    <p class="text-m3-xs text-slate-600 leading-relaxed" data-i18n="s5_desc">Jasa pembuatan dan pemasangan gorden custom (vitrase, blackout, roller blind) disesuaikan dengan dimensi jendela rumah/kantor Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI SECTION -->
+    <section id="galeri" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-m3-xs font-semibold text-brand-dark uppercase tracking-wider block" data-i18n="gallery_subtitle">Portofolio Pekerjaan</span>
+                    <h2 class="text-m3-xl sm:text-m3-2xl font-bold text-slate-900 tracking-tight" data-i18n="gallery_title">Galeri Hasil Pengerjaan</h2>
+                </div>
+                <p class="text-m3-xs text-slate-500 max-w-md" data-i18n="gallery_desc">Klik pada gambar untuk memperbesar dan melihat detail kehalusan serta kerapihan jahitan kami.</p>
+            </div>
+
+            <!-- LightGallery Grid Container -->
+            <div id="lightgallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- 4 Initial Intro Cards -->
+                <a href="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Pembuatan Sofa Minimalis Green" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <a href="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Service Chair Upholstery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <a href="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Modern Sofa Restorasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <a href="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Pembuatan Gordyn Custom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <!-- 4 Additional Samples -->
+                <a href="https://images.unsplash.com/photo-1540518614846-7ede433c5172?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5172?auto=format&fit=crop&w=600&q=80" alt="Service Springbed Bedhead" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <a href="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80" alt="Armchair Classic Refurbished" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <a href="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Living Room Furniture Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+                <a href="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" class="group relative rounded-2xl overflow-hidden aspect-4/3 border border-slate-100 shadow-2xs block">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Custom Curtains Installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-m3-xs gap-2">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="gallery_hover">Lihat Detail</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <span class="text-m3-xs font-semibold text-brand-dark uppercase tracking-wider block" data-i18n="blog_subtitle">Artikel & Tips</span>
+                <h2 class="text-m3-xl sm:text-m3-2xl font-bold text-slate-900 tracking-tight" data-i18n="blog_title">Seputar Perawatan & Pilihan Interior</h2>
+            </div>
+
+            <!-- Vertical List (4 Cards) -->
+            <div class="space-y-6">
+                <!-- Blog Card 1 -->
+                <article class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Blog 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 space-y-3">
+                        <span class="text-[12px] font-semibold text-brand-dark bg-brand-light px-2.5 py-1 rounded-md">Tips Interior</span>
+                        <h3 class="text-m3-md font-bold text-slate-900 hover:text-brand-dark cursor-pointer transition-colors">
+                            5 Trik Rahasia Memilih Furniture untuk Rumah Minimalis Agar Terlihat Luas
+                        </h3>
+                        <p class="text-m3-xs text-slate-600 leading-relaxed">
+                            Penataan furniture yang tepat bisa menyulap ruangan sempit menjadi terasa lebih lapang dan nyaman. Pelajari cara memilih skala, warna kain, dan model sofa...
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-m3-xs font-semibold text-brand-dark hover:text-brand-accent transition-colors pt-2">
+                            <span data-i18n="read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Blog 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 space-y-3">
+                        <span class="text-[12px] font-semibold text-brand-dark bg-brand-light px-2.5 py-1 rounded-md">Panduan Servis</span>
+                        <h3 class="text-m3-md font-bold text-slate-900 hover:text-brand-dark cursor-pointer transition-colors">
+                            Sofa Kesayangan Mulai Rusak? Ini Panduan Memilih Antara Servis atau Bikin Baru secara Custom
+                        </h3>
+                        <p class="text-m3-xs text-slate-600 leading-relaxed">
+                            Bingung apakah rangka sofa Anda masih bagus untuk dilapisi ulang atau sebaiknya membuat unit baru? Temukan pertimbangan penting dari sudut pandang tukang...
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-m3-xs font-semibold text-brand-dark hover:text-brand-accent transition-colors pt-2">
+                            <span data-i18n="read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Blog 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 space-y-3">
+                        <span class="text-[12px] font-semibold text-brand-dark bg-brand-light px-2.5 py-1 rounded-md">Hemat Budget</span>
+                        <h3 class="text-m3-md font-bold text-slate-900 hover:text-brand-dark cursor-pointer transition-colors">
+                            Hemat Hingga 50%! Mengapa Servis Sofa Lama Lebih Menguntungkan daripada Beli Baru
+                        </h3>
+                        <p class="text-m3-xs text-slate-600 leading-relaxed">
+                            Menolak membuang sofa lama bukan cuma ramah lingkungan tapi juga ramah kantong. Simak estimasi penghematan biaya dan peningkatan mutu kayu tua...
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-m3-xs font-semibold text-brand-dark hover:text-brand-accent transition-colors pt-2">
+                            <span data-i18n="read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 4 -->
+                <article class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" alt="Blog 4" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 space-y-3">
+                        <span class="text-[12px] font-semibold text-brand-dark bg-brand-light px-2.5 py-1 rounded-md">Bahan & Material</span>
+                        <h3 class="text-m3-md font-bold text-slate-900 hover:text-brand-dark cursor-pointer transition-colors">
+                            Kain vs Kulit: Panduan Memilih Bahan Pembungkus Sofa Custom Terbaik untuk Rumah Anda
+                        </h3>
+                        <p class="text-m3-xs text-slate-600 leading-relaxed">
+                            Apakah kain Ateja bertumpuk nyaman atau Murni Leather mewah yang cocok untuk gaya hidup keluarga Anda? Bandingkan kelebihan dan cara perawatan keduanya...
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-m3-xs font-semibold text-brand-dark hover:text-brand-accent transition-colors pt-2">
+                            <span data-i18n="read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- HUBUNGI KAMI SECTION -->
+    <section id="hubungi-kami" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="text-m3-xs font-semibold text-brand-dark uppercase tracking-wider block" data-i18n="contact_subtitle">Lokasi & Kontak</span>
+                <h2 class="text-m3-xl sm:text-m3-2xl font-bold text-slate-900 tracking-tight" data-i18n="contact_title">Hubungi Tanjung Sofa Interior</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                
+                <!-- Left Side: Embedded Google Map -->
+                <div class="w-full h-[450px] rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0293626550897!2d106.82589921126895!3d-6.259862593702559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3a878e81e43%3A0x3d6c8909fa2dd23!2sTanjung%20Sofa%20Interior!5e0!3m2!1sen!2sid!4v1791536569206!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+
+                <!-- Right Side: Contact Details & Action Buttons -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200/80 space-y-6">
+                    <!-- Address -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-brand/20 text-brand-dark rounded-xl flex items-center justify-center flex-shrink-0 text-m3-md mt-1">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-m3-xs font-bold text-slate-900 uppercase tracking-wider mb-1" data-i18n="address_label">Alamat Workshop</h4>
+                            <p class="text-m3-xs text-slate-600 leading-relaxed">
+                                Jl. Buncit Raya No.37D, RT.2/RW.2, Duren Tiga, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12760
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex items-start gap-4 pt-4 border-t border-slate-200/60">
+                        <div class="w-10 h-10 bg-brand/20 text-brand-dark rounded-xl flex items-center justify-center flex-shrink-0 text-m3-md">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-m3-xs font-bold text-slate-900 uppercase tracking-wider mb-1">Email</h4>
+                            <a href="mailto:tanjungsofa@gmail.com" class="text-m3-xs text-brand-dark font-semibold hover:underline">tanjungsofa@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Admins -->
+                    <div class="pt-4 border-t border-slate-200/60 space-y-3">
+                        <h4 class="text-m3-xs font-bold text-slate-900 uppercase tracking-wider mb-2" data-i18n="wa_label">Konsultasi WhatsApp</h4>
+                        
+                        <!-- Admin 1 -->
+                        <a href="https://wa.me/6288212224887?text=Halo%20Tanjung%20Sofa%20Interior" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-3 rounded-xl transition-all shadow-sm flex items-center justify-between text-m3-xs group">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-m3-md"></i>
+                                <span>Admin 1 (0882-1222-4887)</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-70 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <!-- Admin 2 -->
+                        <a href="https://wa.me/6287819345336?text=Halo%20Tanjung%20Sofa%20Interior" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-3 rounded-xl transition-all shadow-sm flex items-center justify-between text-m3-xs group">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-m3-md"></i>
+                                <span>Admin 2 (0878-1934-5336)</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-70 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 pb-8 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand text-slate-900 rounded-xl flex items-center justify-center font-bold text-m3-sm">
+                        TSI
+                    </div>
+                    <div>
+                        <span class="font-bold text-white text-m3-sm block">Tanjung Sofa Interior</span>
+                        <span class="text-m3-xs text-slate-400 block">Kualitas Terbaik & Hasil Rapi</span>
+                    </div>
+                </div>
+                <div class="text-m3-xs text-slate-400 text-center sm:text-right">
+                    <p>Jl. Buncit Raya No.37D, Pancoran, Jakarta Selatan</p>
+                </div>
+            </div>
+            <div class="pt-8 text-center text-m3-xs text-slate-500">
+                <p>&copy; 2026 Tanjung Sofa Interior. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- lightGallery JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+
+    <!-- Bilingual i18n & Interactive Logic -->
+    <script>
+        const translations = {
+            id: {
+                nav_home: "Home",
+                nav_about: "Tentang Kami",
+                nav_services: "Layanan Kami",
+                nav_gallery: "Galeri",
+                nav_blog: "Blog",
+                nav_contact: "Hubungi Kami",
+                hero_badge: "Tukang Sofa & Interior Terpercaya",
+                hero_subtitle: "Service dan pembuatan sofa, kursi, springbed dan gordyn",
+                btn_gallery: "Lihat Galeri",
+                btn_contact: "Hubungi Kami",
+                hero_image_caption: "Kualitas Terbaik & Pengerjaan Rapi",
+                fabrics_title: "Pilihan Merek Bahan & Kain Premium",
+                about_tag: "Pengalaman Bertahun-tahun",
+                about_heading: "Spesialis Restorasi & Pembuatan Furniture Custom Terpercaya",
+                about_p1: "Tanjung Sofa Interior berlokasi di Jakarta Selatan, siap membantu Anda mengembalikan kenyamanan dan keindahan furniture kesayangan Anda. Kami melayani perbaikan (service) hingga pembuatan baru sofa, kursi kantor/makan, springbed, serta gordyn custom.",
+                about_p2: "Didukung oleh tenaga ahli berpengalaman dan koleksi bahan bermutu tinggi seperti Ateja, MBTech, hingga Murni Leather, kami menjamin hasil pengerjaan rapi, presisi, dan tahan lama dengan harga yang bersahabat.",
+                about_stat1: "Garansi Kerapihan",
+                about_stat2: "Pilihan Bahan Kain & Kulit",
+                about_badge_text: "Melayani Antar-Jemput Bahan & Sofa Wilayah Jabodetabek",
+                services_subtitle: "Layanan Unggulan",
+                services_title: "Solusi Solutif untuk Interior Anda",
+                s1_title: "Service Sofa",
+                s1_desc: "Ganti kain/kulit, tambah busa padat, perbaikan rangka kayu, dan penggantian pegas/per yang kendur agar kembali empuk seperti baru.",
+                s2_title: "Pembuatan Sofa",
+                s2_desc: "Bikin sofa custom sesuai ukuran ruangan, desain minimalis/modern, serta pilihan bahan kain atau kulit kualitas premium pilihan Anda.",
+                s3_title: "Service Kursi",
+                s3_desc: "Perbaikan kursi makan, kursi kantor, kursi ukir kayu, hingga booth restoran. Penggantian upholstery dan finishing ulang.",
+                s4_title: "Service Springbed",
+                s4_desc: "Ganti kain pembungkus springbed, penataan ulang per yang miring, serta penambahan lapisan busa kenyal berkualitas tinggi.",
+                s5_title: "Pembuatan Gordyn",
+                s5_desc: "Jasa pembuatan dan pemasangan gorden custom (vitrase, blackout, roller blind) disesuaikan dengan dimensi jendela rumah/kantor Anda.",
+                gallery_subtitle: "Portofolio Pekerjaan",
+                gallery_title: "Galeri Hasil Pengerjaan",
+                gallery_desc: "Klik pada gambar untuk memperbesar dan melihat detail kehalusan serta kerapihan jahitan kami.",
+                gallery_hover: "Lihat Detail",
+                blog_subtitle: "Artikel & Tips",
+                blog_title: "Seputar Perawatan & Pilihan Interior",
+                read_more: "Baca Selengkapnya",
+                contact_subtitle: "Lokasi & Kontak",
+                contact_title: "Hubungi Tanjung Sofa Interior",
+                address_label: "Alamat Workshop",
+                wa_label: "Konsultasi WhatsApp"
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_services: "Our Services",
+                nav_gallery: "Gallery",
+                nav_blog: "Blog",
+                nav_contact: "Contact Us",
+                hero_badge: "Trusted Sofa & Interior Craftsmen",
+                hero_subtitle: "Service and custom making of sofas, chairs, springbeds, and curtains",
+                btn_gallery: "View Gallery",
+                btn_contact: "Contact Us",
+                hero_image_caption: "Top Quality & Neat Workmanship",
+                fabrics_title: "Premium Fabric & Material Brands We Use",
+                about_tag: "Years of Experience",
+                about_heading: "Trusted Restoration & Custom Furniture Specialist",
+                about_p1: "Located in South Jakarta, Tanjung Sofa Interior is ready to restore the comfort and beauty of your favorite furniture. We provide repair services and custom manufacturing for sofas, office/dining chairs, springbeds, and curtains.",
+                about_p2: "Supported by experienced craftsmen and high-quality materials like Ateja, MBTech, to Murni Leather, we guarantee neat, precise, and durable results at competitive prices.",
+                about_stat1: "Neatness Guarantee",
+                about_stat2: "Premium Fabric & Leather Choices",
+                about_badge_text: "Pick-up & Delivery Service for Greater Jakarta Area",
+                services_subtitle: "Our Services",
+                services_title: "Solutions for Your Interior Needs",
+                s1_title: "Sofa Repair",
+                s1_desc: "Re-upholstery, foam padding addition, wooden frame repair, and spring replacement to restore brand new comfort.",
+                s2_title: "Sofa Manufacturing",
+                s2_desc: "Custom sofa manufacturing tailored to your room size, minimalist/modern designs, and premium fabric/leather options.",
+                s3_title: "Chair Repair",
+                s3_desc: "Repairing dining chairs, office chairs, carved wooden chairs, and restaurant booths including re-upholstery and refinishing.",
+                s4_title: "Springbed Service",
+                s4_desc: "Replacing springbed outer fabric, re-aligning tilted springs, and adding high-resilience foam layers.",
+                s5_title: "Custom Curtains",
+                s5_desc: "Custom fabrication and installation of curtains (sheer, blackout, roller blinds) fitted to your window dimensions.",
+                gallery_subtitle: "Work Portfolio",
+                gallery_title: "Our Work Gallery",
+                gallery_desc: "Click on any image to enlarge and view our detailed stitching and finishing quality.",
+                gallery_hover: "View Details",
+                blog_subtitle: "Articles & Tips",
+                blog_title: "Interior Maintenance & Guide",
+                read_more: "Read More",
+                contact_subtitle: "Location & Contact",
+                contact_title: "Contact Tanjung Sofa Interior",
+                address_label: "Workshop Address",
+                wa_label: "WhatsApp Consultation"
+            }
+        };
+
+        $(document).ready(function() {
+            // 1. Initialize lightGallery
+            lightGallery(document.getElementById('lightgallery'), {
+                speed: 300,
+                download: false
+            });
+
+            // 2. Mobile Menu Toggle
+            $('#mobileMenuBtn').on('click', function() {
+                $('#mobileMenu').toggleClass('hidden');
+            });
+
+            $('.mobile-nav-link').on('click', function() {
+                $('#mobileMenu').addClass('hidden');
+            });
+
+            // 3. Language Picker Toggle & Switcher
+            $('#langDropdownBtn').on('click', function(e) {
+                e.stopPropagation();
+                $('#langMenu').toggleClass('hidden');
+            });
+
+            $(document).on('click', function() {
+                $('#langMenu').addClass('hidden');
+            });
+
+            $('.lang-option').on('click', function() {
+                const selectedLang = $(this).data('lang');
+                switchLanguage(selectedLang);
+            });
+
+            function switchLanguage(lang) {
+                if (lang === 'en') {
+                    $('#currentLangFlag').text('🇬🇧');
+                    $('#currentLangText').text('EN');
+                } else {
+                    $('#currentLangFlag').text('🇮🇩');
+                    $('#currentLangText').text('ID');
+                }
+
+                $('[data-i18n]').each(function() {
+                    const key = $(this).data('i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        $(this).text(translations[lang][key]);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
